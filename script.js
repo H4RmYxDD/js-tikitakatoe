@@ -196,9 +196,13 @@ resetButton.addEventListener('click', () => {
   createBoard();
 });
 
-playerVsPlayerButton.addEventListener('click', () => {
-  gameMode = 'player';
+playerVsComputerButton.addEventListener('click', () => {
+  gameMode = 'computer';
   createBoard();
+  currentPlayer = Math.random() < 0.5 ? 'X' : 'O';
+  if (currentPlayer === 'O') {
+    setTimeout(computerMove, 500);
+  }
 });
 
 playerVsComputerButton.addEventListener('click', () => {
