@@ -186,7 +186,11 @@ function showGameOverMessage(message) {
   gameOverMessage.textContent = message;
   modal.style.display = 'flex';
 }
-
+playerVsPlayerButton.addEventListener('click', () => {
+  gameMode = 'player';
+  createBoard();
+  currentPlayer = 'X';
+});
 closeModalButton.addEventListener('click', () => {
   modal.style.display = 'none';
   createBoard();
@@ -205,8 +209,5 @@ playerVsComputerButton.addEventListener('click', () => {
   }
 });
 
-playerVsComputerButton.addEventListener('click', () => {
-  gameMode = 'computer';
-  createBoard();
-});
+// Removed duplicate event listener
 createBoard();
